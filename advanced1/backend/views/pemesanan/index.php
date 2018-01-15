@@ -30,6 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'lama_sewa',
             'total',
             'idstatus',
+            'created_at',
             //'idjadwal',
             //'idpelanggan',
 

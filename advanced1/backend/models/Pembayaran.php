@@ -3,6 +3,8 @@
 namespace backend\models;
 
 use Yii;
+use backend\models\Status;
+
 
 /**
  * This is the model class for table "pembayaran".
@@ -33,7 +35,7 @@ class Pembayaran extends \yii\db\ActiveRecord
         return [
             [['idpembayaran', 'tanggal'], 'required'],
             [['idpembayaran', 'total_harga', 'bayar', 'idpemesanan'], 'integer'],
-            [['tanggal'], 'safe'],
+            [['tanggal','status_id'], 'safe'],
             [['bukti_pembayaran'], 'string', 'max' => 200],
             [['idpembayaran'], 'unique'],
             [['idpemesanan'], 'exist', 'skipOnError' => true, 'targetClass' => Pemesanan::className(), 'targetAttribute' => ['idpemesanan' => 'idpemesanan']],
@@ -52,6 +54,7 @@ class Pembayaran extends \yii\db\ActiveRecord
             'bayar' => 'Bayar',
             'bukti_pembayaran' => 'Bukti Pembayaran',
             'idpemesanan' => 'Idpemesanan',
+            'status_id' => 'Status'
         ];
     }
 
@@ -61,5 +64,10 @@ class Pembayaran extends \yii\db\ActiveRecord
     public function getPemesanan()
     {
         return $this->hasOne(Pemesanan::className(), ['idpemesanan' => 'idpemesanan']);
+    }
+
+     public function getStatus()
+    {
+        return $this->hasOne(Status::className(), ['idstatus' => 'status_id']);
     }
 }

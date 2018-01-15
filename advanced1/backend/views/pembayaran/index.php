@@ -30,6 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'total_harga',
             'bayar',
             'bukti_pembayaran',
+            
             //'idpemesanan',
 
             ['class' => 'yii\grid\ActionColumn'],

@@ -37,7 +37,7 @@ class Pemesanan extends \yii\db\ActiveRecord
     {
         return [
             [['idpemesanan', 'tanggal', 'lama_sewa', 'total', 'idstatus', 'idjadwal', 'idpelanggan'], 'required'],
-            [['idpemesanan', 'lama_sewa', 'total', 'idstatus', 'idjadwal', 'idpelanggan'], 'integer'],
+            [['idpemesanan', 'lama_sewa', 'total', 'idstatus', 'idjadwal', 'idpelanggan','created_at'], 'integer'],
             [['tanggal'], 'safe'],
             [['idpemesanan'], 'unique'],
             [['idjadwal'], 'exist', 'skipOnError' => true, 'targetClass' => Jadwal::className(), 'targetAttribute' => ['idjadwal' => 'idjadwal']],
@@ -59,6 +59,7 @@ class Pemesanan extends \yii\db\ActiveRecord
             'idstatus' => 'Idstatus',
             'idjadwal' => 'Idjadwal',
             'idpelanggan' => 'Pelanggan',
+            'created_at' => 'Dibuat Pada'
         ];
     }
 

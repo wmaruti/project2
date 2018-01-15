@@ -6,6 +6,7 @@ use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use backend\models\Pembayaran;
+use frontend\models\Status;
 
 /**
  * PembayaranSearch represents the model behind the search form of `backend\models\Pembayaran`.
@@ -19,7 +20,7 @@ class PembayaranSearch extends Pembayaran
     {
         return [
             [['idpembayaran', 'total_harga', 'bayar', 'idpemesanan'], 'integer'],
-            [['tanggal', 'bukti_pembayaran'], 'safe'],
+            [['tanggal', 'bukti_pembayaran','status_id'], 'safe'],
         ];
     }
 
@@ -64,6 +65,8 @@ class PembayaranSearch extends Pembayaran
             'total_harga' => $this->total_harga,
             'bayar' => $this->bayar,
             'idpemesanan' => $this->idpemesanan,
+            'status_id' => $this->status_id,
+            
         ]);
 
         $query->andFilterWhere(['like', 'bukti_pembayaran', $this->bukti_pembayaran]);

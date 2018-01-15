@@ -100,7 +100,7 @@ class PemesananController extends Controller
     
             $model->idpelanggan=$plg->idpelanggan;
             $model->total=$tot * $model->lama_sewa ;
-            $model->idstatus=1;
+            $model->idstatus=5;
 
             $model->save();
             return $this->redirect(['view', 'id' => $model->idpemesanan]);

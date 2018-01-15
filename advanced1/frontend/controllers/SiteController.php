@@ -156,6 +156,7 @@ class SiteController extends Controller
       $pos=Yii::$app->request->post();
             if ($user = $model->signup()) {
 
+        $plg->idpelanggan=date('this');
         $plg->nama=$pos['Pelanggan']['nama'];
         $plg->club=$pos['Pelanggan']['club'];
         $plg->alamat=$pos['Pelanggan']['alamat'];

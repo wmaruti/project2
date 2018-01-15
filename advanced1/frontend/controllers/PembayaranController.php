@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use Yii;
+use frontend\models\Pemesanan;
 use frontend\models\Pembayaran;
 use frontend\models\PembayaranSearch;
 use yii\web\Controller;
@@ -92,6 +93,14 @@ class PembayaranController extends Controller
       public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        #$pmsn = Pembayaran::find()->where('idpemesanan in (select from pemesanan where idpemesanan =1)');
+        #$pmsn = pemesanan::find()->with('pemesanan')->asArray()->all();
+        #VarDumper::dump($pmsn,20,true);
+
+        
+        #$a = Pemesanan::find()->where($model->idpemesanan=$pmsn);
+        #$query = Orders::find()->where('teknisi_id in (select id_teknisi from Teknisi where user_id ='.Yii::$app->user->identity->id.')');
+
 
          if ($model->load(Yii::$app->request->post())){
           $imageName = $model->idpembayaran;
@@ -109,10 +118,11 @@ class PembayaranController extends Controller
               #exit();
              }
          }
-        
+            $model->status_id=2;
             $model->save();
            
             return $this->redirect(['view', 'id' => $model->idpembayaran]);
+
         } else {
             return $this->render('update', [
                 'model' => $model,

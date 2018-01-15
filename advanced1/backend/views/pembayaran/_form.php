@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
+use backend\models\Pemesanan;
+
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Pembayaran */
@@ -22,7 +25,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'bukti_pembayaran')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'idpemesanan')->textInput() ?>
+    <?= $form->field($model, 'idpemesanan')->label('Jam')
+    ->dropDownList(ArrayHelper::map(Pemesanan::find()->asArray()->all(),
+    'idpemesanan','idpemesanan',SORT_ASC),['prompt'=>'- Pilih -'])
+    ->hint('Pilih'); ?> 
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
@@ -31,3 +37,5 @@ use yii\widgets\ActiveForm;
     <?php ActiveForm::end(); ?>
 
 </div>
+
+

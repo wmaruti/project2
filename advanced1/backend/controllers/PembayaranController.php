@@ -67,7 +67,9 @@ class PembayaranController extends Controller
         $model = new Pembayaran();
          $model->idpembayaran = date('ythis');
          
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())){
+            $model->status_id=1;
+            $model->save();
             return $this->redirect(['view', 'id' => $model->idpembayaran]);
         }
 

@@ -39,7 +39,7 @@ class Pelanggan extends \yii\db\ActiveRecord
             [['nama', 'club'], 'string', 'max' => 30],
             [['alamat'], 'string', 'max' => 45],
             [['idpelanggan'], 'unique'],
-            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
+            #[['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
 

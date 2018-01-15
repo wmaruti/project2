@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model backend\models\Barang */
 
 $this->title = $model->idbarang;
-$this->params['breadcrumbs'][] = ['label' => 'Barangs', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Data Barangs', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="barang-view">

@@ -34,6 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             #'total_harga',
             'pemesanan.total',
             'bayar',
+            'status.status',
             //'bukti_pembayaran',
              [
         'attribute'=>'bukti_pembayaran',
